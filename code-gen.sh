@@ -36,6 +36,7 @@ ls -l "$OUTPUT_PATH"
 # Verify certificate
 openssl x509 -in "$OUTPUT_PATH/codesign.crt" -text -noout
 
+base64 -i $OUTPUT_PATH/codesign.pfx | tr -d '\n' > $OUTPUT_PATH/code_sign_base64.txt
 # Provide instructions
 echo "
 Certificate Generation Complete!
